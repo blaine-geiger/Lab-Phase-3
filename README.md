@@ -1,4 +1,4 @@
-# Home Lab Phase 3
+# Lab Phase 3: Network functionality and performance testing
 
 ## Basic Network Functionality Testing
 
