@@ -1,5 +1,18 @@
 # Lab Phase 3: Network functionality and performance testing
 
+### Private IP Address Ranges
+Private IP addresses are not routable on the public internet and can be used within private networks. The standard ranges for private IP addresses are:
+- 10.0.0.0 to 10.255.255.255
+- 172.16.0.0 to 172.31.255.255
+- 192.168.0.0 to 192.168.255.255
+  
+#### For the sake of clarity we will use the following examples:
+  - 192.168.1.0 /24 for subnet 1
+  - 192.168.2.0 /24 for subnet 2
+
+> **Note:** All device IP addressing is used as an example and does not reflect the actual addressing scheme used in my network setup. These are given as placeholder IP addresses for
+> clarity to the reader.
+
 ## Basic Network Functionality Testing
 
 Here we will test basic network communication between all devices, including existing devices and those that have been set up and configured in the previous steps. Using a simple command line interface (CLI) tool called ‘nmap’ we will determine if a host is working, also referred to as ‘up’. This proves that communication is taking place. A faster tool called ‘ping’ could be used, but all the devices are set to ignore incoming pings and not send out replies. This is for security reasons and helps devices from being easily discovered by outside agents. Blocking pings doesn’t prevent attackers from discovering your hosts, but it does add obscurity because ping sweeps are often one of the first steps in gathering information about a possible target.
@@ -13,58 +26,20 @@ Here we will test basic network communication between all devices, including exi
 
 The command line input and resulting output can be seen in the list below. The last two lines are important. This shows what IP the result is for, if the host is ‘up’, and the length of the latency. This is the round-trip time (RTT). Meaning how long it took for packets to be sent to the destination and return to the nmap source.
 
-### Subnet 1 (home.lan) 192.168.1.0 /24
+### Subnet 1 example
+  - `C:\Windows\System32>nmap 192.168.1.0 /24` returns:
+- FIREWALL LAN PORT: HOME GATEWAY 
+- HOME ROUTER
+- PC1
+- PC2
+- LAPTOP
 
-- PFSENSE LAN PORT:
-  - `C:\Windows\System32>nmap 192.168.1.1`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:19 Eastern Daylight Time
-  - Nmap scan report for 192.168.1.1
-  - Host is up (0.0028s latency).
-
-- ASUS ROUTER:
-  - `C:\Windows\System32>nmap 192.168.1.2`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:20 Eastern Daylight Time
-  - Nmap scan report for 192.168.1.2
-  - Host is up (0.0049s latency).
-
-- PC1:
-  - `C:\Windows\System32>nmap 192.168.1.182`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:08 Eastern Daylight Time
-  - Nmap scan report for 192.168.1.182
-  - Host is up (0.0030s latency).
-
-- PC2:
-  - `C:\Windows\System32>nmap 192.168.1.135`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:07 Eastern Daylight Time
-  - Nmap scan report for 192.168.1.135
-  - Host is up (0.0031s latency).
-
-- LAPTOP:
-  - `C:\Windows\System32>nmap 192.168.1.116`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:10 Eastern Daylight Time
-  - Nmap scan report for 192.168.1.116
-  - Host is up (0.063s latency).
-
-### Subnet 2 (lab.lan) 192.168.2.0 /24
-
-- PFSENSE OPT PORT - LAB GATEWAY:
-  - `C:\Windows\System32>nmap 192.168.2.1`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:10 Eastern Daylight Time
-  - Nmap scan report for 192.168.2.1
-  - Host is up (0.0016s latency).
-
-- NETGEAR SWITCH:
-  - `C:\Windows\System32>nmap 192.168.2.2`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:10 Eastern Daylight Time
-  - Nmap scan report for 192.168.2.2
-  - Host is up (0.014s latency).
-
-- GMKtec M5 PRO - LAB PC:
-  - `C:\Windows\System32>nmap 192.168.2.102`
-  - Starting Nmap 7.94 ( https://nmap.org ) at 2024-09-24 17:10 Eastern Daylight Time
-  - Nmap scan report for 192.168.2.102
-  - Host is up (0.0000030s latency).
-
+### Subnet 2 example
+  - `C:\Windows\System32>nmap 192.168.2.0 /24` returns:
+- FIREWALL OPT PORT - LAB GATEWAY
+- MANAGED SWITCH
+- LAB PC
+  
 ## Research Network Performance Analysis Tools
 
 First, our internet connection speed will be tested. These speed statistics are measured in download, upload, and ping. The following testing servers are some of the most popular choices for testing internet connection speeds.
@@ -81,7 +56,7 @@ First, our internet connection speed will be tested. These speed statistics are 
 
 ### iPerf3
 
-iPerf3 is another network performance testing tool that focuses on the bandwidth, throughput, and latency between two devices on the same network. It is a powerful and flexible tool. Full documentation can be found at [iPerf Documentation](https://iperf.fr/iperf-doc.php#3doc). Use and documented results of both internet speed testing and network performance testing can be found in the next section.
+iPerf3 is another network performance testing tool that focuses on the bandwidth, throughput, and latency between two devices on the same network. It is a powerful and flexible tool. Full documentation can be found at [here](https://iperf.fr/iperf-doc.php#3doc). Use and documented results of both internet speed testing and network performance testing can be found in the next section.
 
 ## Network Performance Testing
 
@@ -108,7 +83,7 @@ While these speeds are not as fast as some top internet access speeds, they perf
 
 Moving on to the LAN performance between devices, we now use iPerf3. We are only testing two devices that exist in the lab currently: our Lab PC and the Laptop.
 
-1. Go to [iperf.fr](https://iperf.fr).
+1. Go to [this address](https://iperf.fr).
 2. Click on the **Download iPerf binaries** tab.
 3. Two links are available; we will use the GitHub link. Click on the link.
 4. On the right side of the page under **Releases**, click on the green **latest tag**.
@@ -117,27 +92,16 @@ Moving on to the LAN performance between devices, we now use iPerf3. We are only
 7. Enter the unzipped folder.
 8. While in the folder, click the address bar:
    - Type `cmd` in the address bar and press Enter.
-9. This will open a command prompt window:
-   - Notice the prompt refers to the iPerf application:
-    ```
-    C:\Users\bjg91\Downloads\iperf-3.17.1-win64-dynamic-auth>
-    ```
-1. Type `iperf3.exe -s -p 6000` and press Enter:
+9. This will open a command prompt window
+10. Type `iperf3.exe -s -p 6000` and press Enter:
    - This creates a server (or sender) on port 6000, sending messages used for measuring performance.
    - Next, we will set up the receiver of these messages on another device. But first, we need the IP address of the sender machine, so:
-2. Open a new terminal window and type `ipconfig` and press Enter.
-3. Look for an entry that is named **Ethernet** or **Ethernet adapter**.
-4. Note this **IPv4 address** down or leave the window open for now.
-5. On the second device (Lab PC), open a terminal window:
+11. Open a new terminal window and type `ipconfig` and press Enter.
+12. Look for an entry that is named **Ethernet** or **Ethernet adapter**.
+13. Note this **IPv4 address** down or leave the window open for now.
+14. On the second device (Lab PC), open a terminal window:
    - Follow the same steps of downloading iPerf3, unzipping the file, entering the unzipped folder, and typing `cmd` in the address bar and pressing Enter.
-6. Type `iperf3.exe -c <IP address> -p 6000` and press Enter in the newly opened terminal window (on the second device – the receiver – which is the Lab PC).
+15. Type `iperf3.exe -c <IP address> -p 6000` and press Enter in the newly opened terminal window (on the second device – the receiver – which is the Lab PC).
    - Allow the testing to run until it completes, which will only take a matter of seconds.
 
-The results for the iPerf3 test
-
-<p align="center">The results for the iPerf3 test
-  <br/>
-  <img src="https://imgur.com/ORtFHtH.png" height="80%" width="80%" alt="Table1.1"/><br /><br />
-</p>
-
-The iPerf3 program performs many small transfers of UDP packets to test performance. At the bottom right of the figure above we can see the bitrate of 949 Mbits/sec. This is very close, but just less than, a benchmark of 1Gbs for local network speeds between devices within the lab subnet. These speeds are adequate for our purposes.
+The iPerf3 program performs many small transfers of UDP packets to test performance. At the bottom right of the test results the bitrate of 949 Mbits/sec is seen. This is very close, but just less than, a benchmark of 1Gbs for local network speeds between devices within the lab subnet. These speeds are adequate for our purposes.
