@@ -71,7 +71,7 @@ We will use two in our testing; both Ookla and LibreSpeed.
 
 These are comparable results for either device being used, whether on ethernet or wireless, which are both on separate subnets. This reflects no large discrepancies between the choice of using ethernet or wireless and connecting to subnet 1 (home LAN) or subnet 2 (lab LAN).
 
-While these speeds are not as fast as some top internet access speeds, they perform well for our purposes. I believe we are somewhat limited by the performance of the Netgate SG-1100, which has variable reports on throughput of 500 – 1000 Mbits, depending on sources. We should also consider the replacement of some runs of ethernet cabling that was pre-existing on the network before we began this project. 
+While these speeds are not as fast as some top internet access speeds, they perform well for our purposes. I believe we are somewhat limited by the performance of the firewall, which has variable reports on throughput that are compatible with these speeds. We should also consider the replacement of some runs of ethernet cabling that was pre-existing on the network before we began this project. 
 
 
 <p align="center">Averaging these together, we get results for our two devices listed in Mbps.
