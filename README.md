@@ -45,7 +45,7 @@ First, our internet connection speed will be tested. These speed statistics are 
 
 <p align="center">Strengths, weaknesses, and features of speed test providers.
   <br/>
-  <img src="https://imgur.com/qn5ndyc.png" height="80%" width="80%" alt="Table1.1"/><br /><br />
+  <img src="https://i.imgur.com/qn5ndyc.png" height="80%" width="80%" alt="Strengths, weaknesses, and features of speed test providers."/><br /><br />
 </p>
 
 - **Ookla** – A powerful and popular option that has servers all over the world (some others may not and are limited depending on your region). Very good for general performance testing.
@@ -65,7 +65,7 @@ We will use two in our testing; both Ookla and LibreSpeed.
 
 <p align="center">The results from the speed tests.
   <br/>
-  <img src="https://imgur.com/EWfthxJ.png" height="80%" width="80%" alt="Table1.1"/><br /><br />
+  <img src="https://i.imgur.com/EWfthxJ.png" height="80%" width="80%" alt="The results from the speed tests."/><br /><br />
 </p>
 
 These are comparable results for either device being used, whether on ethernet or wireless, which are both on separate subnets. This reflects no large discrepancies between the choice of using ethernet or wireless and connecting to subnet 1 (home LAN) or subnet 2 (lab LAN).
@@ -75,7 +75,7 @@ While these speeds are not as fast as some top internet access speeds, they perf
 
 <p align="center">Averaging these together, we get results for our two devices listed in Mbps.
   <br/>
-  <img src="https://imgur.com/tvTpjPk.png" height="80%" width="80%" alt="Table1.1"/><br /><br />
+  <img src="https://i.imgur.com/tvTpjPk.png" height="80%" width="80%" alt="Averaged results for our two devices listed in Mbps."/><br /><br />
 </p>
 
 ## LAN Performance Testing with iPerf3
