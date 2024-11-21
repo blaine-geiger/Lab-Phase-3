@@ -43,10 +43,11 @@ We will scan each subnet to discover any active hosts, which should return all t
 
 First, our internet connection speed will be tested. These speed statistics are measured in download, upload, and ping. The following testing servers are some of the most popular choices for testing internet connection speeds.
 
-<p align="center">Strengths, weaknesses, and features of speed test providers.
-  <br/>
-  <img src="https://i.imgur.com/qn5ndyc.png" height="80%" width="80%" alt="Strengths, weaknesses, and features of speed test providers."/><br /><br />
-</p>
+<div align="center">
+  
+  ![Description of Image](https://raw.githubusercontent.com/blaine-geiger/Lab-Phase-3/5142803f89a1624f18599f23eb81a48633d45f35/testers_pro_con.png)
+  
+</div>
 
 - **Ookla** – A powerful and popular option that has servers all over the world (some others may not and are limited depending on your region). Very good for general performance testing.
 - **Cloudflare** – Useful for checking connection performance to Cloudflare’s network. This is especially important if you are using Cloudflare services.
@@ -63,20 +64,22 @@ Internet speed testing is a straightforward process. Simply traveling to the ass
 
 We will use two in our testing; both Ookla and LibreSpeed. 
 
-<p align="center">The results from the speed tests.
-  <br/>
-  <img src="https://i.imgur.com/EWfthxJ.png" height="80%" width="80%" alt="The results from the speed tests."/><br /><br />
-</p>
+<div align="center">
+  
+  ![Description of Image](https://raw.githubusercontent.com/blaine-geiger/Lab-Phase-3/5142803f89a1624f18599f23eb81a48633d45f35/speeds.png)
+  
+</div>
 
 These are comparable results for either device being used, whether on ethernet or wireless, which are both on separate subnets. This reflects no large discrepancies between the choice of using ethernet or wireless and connecting to subnet 1 (home LAN) or subnet 2 (lab LAN).
 
 While these speeds are not as fast as some top internet access speeds, they perform well for our purposes. I believe we are somewhat limited by the performance of the firewall, which has variable reports on throughput that are compatible with these speeds. We should also consider the replacement of some runs of ethernet cabling that was pre-existing on the network before we began this project. 
 
 
-<p align="center">Averaging these together, we get results for our two devices listed in Mbps.
-  <br/>
-  <img src="https://i.imgur.com/tvTpjPk.png" height="80%" width="80%" alt="Averaged results for our two devices listed in Mbps."/><br /><br />
-</p>
+<div align="center">
+  
+  ![Description of Image](https://raw.githubusercontent.com/blaine-geiger/Lab-Phase-3/5142803f89a1624f18599f23eb81a48633d45f35/speed_averages.png)
+  
+</div>
 
 ## LAN Performance Testing with iPerf3
 
